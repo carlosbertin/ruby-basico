@@ -5,13 +5,28 @@
 require "cpf_cnpj"
 
 puts 'informe o número do cpf: '
-number = gets.chomp
+cpf_number = gets.chomp
 
-puts "O CPF é válido ? #{CPF.valid?(number)}" # Check if a CPF is valid
-puts "Gera um CPF válido de exemplo: #{CPF.generate}" # Generate a random CPF number
-puts "Gera um CPF válido de exemplo e formatado: #{CPF.generate(true)}"  # Generate a formatted number
+# --------------------------------
+# Resposta do Leonardo Scorza
+# --------------------------------
+def check_cpf(cpf_number)
+    if CPF.valid?(cpf_number)
+        return "O cpf informado é valido"
+    else
+        return "O cpf informado é invalido"
+    end
+end
 
-cpf = CPF.new(number)
+result = check_cpf(cpf_number)
+puts result + ' resposta do Leonardo Scorza'
+# --------------------------------
+
+puts "O CPF é válido ? #{CPF.valid?(cpf_number)}" # Check if a CPF is valid
+puts "Gera um CPF válido de exemplo: #{CPF.generate}" # Generate a random CPF cpf_number
+puts "Gera um CPF válido de exemplo e formatado: #{CPF.generate(true)}"  # Generate a formatted cpf_number
+
+cpf = CPF.new(cpf_number)
 puts "Return formatted CPF (xxx.xxx.xxx-xx): #{cpf.formatted}" 
 puts "Return stripped CPF (xxxxxxxxxxx): #{cpf.stripped}" 
 puts "Check if CPF is valid: #{cpf.valid?}"
